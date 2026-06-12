@@ -1,8 +1,10 @@
 # Imagen base para runtime
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
-EXPOSE 7180
-ENV ASPNETCORE_URLS=http://+:7180
+EXPOSE 7181
+ENV ASPNETCORE_URLS=http://+:7181
+ENV ConnectionStrings__DefaultConnection="Server=sqlserver;Database=Todos;User Id=sa;Password=TuPasswordSeguro123!;TrustServerCertificate=True;"
+
 
 # Imagen para build
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
